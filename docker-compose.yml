@@ -1,0 +1,17 @@
+version: '3'
+services:
+  monitor:
+    build: .
+    working_dir: /opt
+    command: /usr/bin/init.sh
+    volumes:
+      - './init/init.sh:/usr/bin/init.sh'
+      - './graphite-api.yaml:/etc/graphite-api.yaml'
+    ports:
+      - '5555:5555'
+      - '3000:3000'
+      - '5556:5556'
+      - '8080:8888'
+      - '2003:2003'
+      - '2004:2004'
+      - '5557:5557'
